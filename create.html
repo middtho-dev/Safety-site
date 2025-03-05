@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Создать пост{% endblock %}
+{% block content %}
+<h1>Создать новый пост</h1>
+<form method="post" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="title" class="form-label">Заголовок</label>
+    <input type="text" class="form-control" id="title" name="title" required>
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Подробное описание</label>
+    <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="action" class="form-label">Действие для устранения</label>
+    <textarea class="form-control" id="action" name="action" rows="2" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="participant" class="form-label">Участник происшествия</label>
+    <select class="form-select" id="participant" name="participant" required>
+      <option value="">Выберите</option>
+      <option value="Сотрудник">Сотрудник</option>
+      <option value="Подрядчик">Подрядчик</option>
+      <option value="Водитель">Водитель</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="area" class="form-label">Участок</label>
+    <select class="form-select" id="area" name="area" required>
+      <option value="">Выберите</option>
+      <option value="Hot End">Hot End</option>
+      <option value="Cold End">Cold End</option>
+      <option value="Coater">Coater</option>
+      <option value="Warehouse">Warehouse</option>
+      <option value="Maintenance">Maintenance</option>
+      <option value="Office">Office</option>
+      <option value="Территория">Территория</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="category" class="form-label">Категория</label>
+    <select class="form-select" id="category" name="category" required>
+      <option value="">Выберите</option>
+      <option value="Экологический инцидент">Экологический инцидент</option>
+      <option value="Несоответствие по экологии">Несоответствие по экологии</option>
+      <option value="Небезопасное действие">Небезопасное действие</option>
+      <option value="Небезопасное условие">Небезопасное условие</option>
+      <option value="Порча имущества">Порча имущества</option>
+      <option value="Первая помощь">Первая помощь</option>
+      <option value="HPE">HPE</option>
+      <option value="LTI">LTI</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="state" class="form-label">Состояние</label>
+    <select class="form-select" id="state" name="state" required>
+      <option value="">Выберите</option>
+      <option value="Выполнено">Выполнено</option>
+      <option value="Не выполнено">Не выполнено</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="shift" class="form-label">Смена</label>
+    <select class="form-select" id="shift" name="shift" required>
+      <option value="">Выберите</option>
+      <option value='Shift "A"'>Shift "A"</option>
+      <option value='Shift "B"'>Shift "B"</option>
+      <option value='Shift "C"'>Shift "C"</option>
+      <option value='Shift "D"'>Shift "D"</option>
+      <option value='Shift "Day"'>Shift "Day"</option>
+      <option value="Maintenance">Maintenance</option>
+      <option value="Office">Office</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="image" class="form-label">Изображение (необязательно)</label>
+    <input class="form-control" type="file" id="image" name="image" accept="image/*">
+  </div>
+  <button type="submit" class="btn btn-primary">Создать пост</button>
+</form>
+{% endblock %}

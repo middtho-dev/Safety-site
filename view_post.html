@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Пост №{{ post.id }}{% endblock %}
+{% block content %}
+<div class="card bg-dark text-white mb-4">
+  <div class="card-header">
+    <h2>{{ post.title }}</h2>
+  </div>
+  <div class="card-body">
+    <p>{{ post.description }}</p>
+    <p><strong>Действие:</strong> {{ post.action }}</p>
+    <p><strong>Участник:</strong> {{ post.participant }}</p>
+    <p><strong>Участок:</strong> {{ post.area }}</p>
+    <p><strong>Категория:</strong> {{ post.category }}</p>
+    <p><strong>Состояние:</strong> {{ post.state }}</p>
+    <p><strong>Смена:</strong> {{ post.shift }}</p>
+    <p><strong>Дата:</strong> {{ post.timestamp }}</p>
+    {% if post.image %}
+      <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#imageModal">Посмотреть изображение</button>
+      <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content bg-dark">
+            <div class="modal-header">
+              <h5 class="modal-title" id="imageModalLabel">Изображение</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <img src="{{ url_for('uploaded_file', filename=post.image.replace('data/', '')) }}" alt="Изображение" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+<a href="{{ url_for('index') }}" class="btn btn-primary">Назад</a>
+{% endblock %}
